@@ -7,8 +7,13 @@
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
   <style>
+    .font-price {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
     :root {
       --bg-main: #0B0908;
       --bg-surface: #14100E;
@@ -254,7 +259,7 @@
             
             <div class="flex items-baseline gap-2 mb-1">
               <span class="text-xs uppercase font-bold text-[#E5828D]">Por apenas</span>
-              <span class="font-serif font-extrabold text-4xl sm:text-5xl text-white">12x R$ 27,42</span>
+              <span class="font-price text-4xl sm:text-5xl text-white">12x R$ 27,42</span>
             </div>
             <p class="text-sm font-semibold text-[#F3E3A2]">
               ou R$ 277,00 à vista no PIX / Cartão (-60% OFF)
@@ -778,7 +783,7 @@
             Valor total de tabela: <span class="line-through text-base">R$ 1.088,00</span>
           </div>
 
-          <div class="font-serif font-black text-5xl sm:text-7xl text-white mb-2 leading-none">
+          <div class="font-price text-5xl sm:text-7xl text-white mb-2 leading-none">
             12x <span class="text-gold-gradient">R$ 27,42</span>
           </div>
           
@@ -916,7 +921,7 @@
   <div id="mobileBottomBar" class="fixed bottom-0 left-0 right-0 z-50 p-3 bg-[#120D0B]/95 backdrop-blur-md border-t border-[#D4AF37]/30 sm:hidden flex items-center justify-between gap-3 shadow-2xl">
     <div>
       <span class="text-[10px] uppercase font-bold text-[#D4AF37] block">Black November</span>
-      <span class="font-serif font-black text-lg text-white">12x R$ 27,42</span>
+      <span class="font-price text-lg text-white">12x R$ 27,42</span>
     </div>
     <a href="https://pay.hotmart.com/G108554819L?bid=1795481474464" target="_blank" class="btn-gold-glow text-xs uppercase tracking-wider font-extrabold px-5 py-3 rounded-xl">
       Garantir por R$ 277
