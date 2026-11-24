@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black November | Natália Duarte Ateliê – 3 Cursos + Live de Natal</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #0B0908;
+      --bg-surface: #14100E;
+      --bg-card: rgba(22, 17, 15, 0.75);
+      --gold-primary: #D4AF37;
+      --gold-light: #F3E3A2;
+      --gold-dark: #9A7B1C;
+      --rose-primary: #E5828D;
+      --rose-light: #FDE8EA;
+      --rose-glow: rgba(229, 130, 141, 0.15);
+      --text-main: #FBF8F5;
+      --text-muted: #B8B0AA;
+      --border-subtle: rgba(255, 255, 255, 0.07);
+      --border-gold: rgba(212, 175, 55, 0.28);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-serif { font-family: 'Playfair Display', serif; }
+    .font-script { font-family: 'Caveat', cursive; }
+
+    /* Efeito de iluminação dourada e foil */
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #FFF0BD 0%, #D4AF37 45%, #AA8322 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-rose-gradient {
+      background: linear-gradient(135deg, #FFAEC0 0%, #E5828D 60%, #C9616D 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Glassmorphism de Luxo */
+    .glass-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(212, 175, 55, 0.45);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 30px -10px rgba(212, 175, 55, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .glass-card-rose {
+      background: rgba(26, 17, 19, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(229, 130, 141, 0.25);
+    }
+    .glass-card-rose:hover {
+      border-color: rgba(229, 130, 141, 0.55);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 30px -10px rgba(229, 130, 141, 0.2);
+    }
+
+    /* Botão CTA Principal de Alta Conversão */
+    .btn-gold-glow {
+      background: linear-gradient(135deg, #F3DE8A 0%, #D4AF37 50%, #B89020 100%);
+      color: #0E0B08;
+      font-weight: 800;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s ease;
+      box-shadow: 0 10px 28px -5px rgba(212, 175, 55, 0.45);
+    }
+    .btn-gold-glow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px -4px rgba(212, 175, 55, 0.6);
+      filter: brightness(1.05);
+    }
+    .btn-gold-glow::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.4) 50%, transparent 60%);
+      transform: rotate(35deg);
+      animation: buttonShine 4s infinite;
+    }
+    @keyframes buttonShine {
+      0% { transform: translateX(-120%) rotate(35deg); }
+      20%, 100% { transform: translateX(120%) rotate(35deg); }
+    }
+
+    /* Botão Rosa Delicado */
+    .btn-rose-luxury {
+      background: linear-gradient(135deg, #F098A2 0%, #E5828D 100%);
+      color: #FFFFFF;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 22px -4px rgba(229, 130, 141, 0.4);
+    }
+    .btn-rose-luxury:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -4px rgba(229, 130, 141, 0.6);
+      filter: brightness(1.06);
+    }
+
+    /* Ambient Glows */
+    .glow-amber {
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      filter: blur(50px);
+    }
+    .glow-rose {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(229, 130, 141, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      filter: blur(50px);
+    }
+
+    /* Accordion FAQ */
+    details summary::-webkit-details-marker { display: none; }
+    details summary { list-style: none; }
+    details[open] summary .faq-chevron {
+      transform: rotate(180deg);
+      color: var(--gold-primary);
+    }
+    details[open] {
+      border-color: rgba(212, 175, 55, 0.4);
+      background: rgba(28, 22, 20, 0.9);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0B0908; }
+    ::-webkit-scrollbar-thumb { background: #2A221E; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+  </style>
+</head>
+<body class="selection:bg-[#D4AF37] selection:text-black">
+
+  <!-- ==================== 1. TOPO: BARRA DE URGÊNCIA ELEGANTE ==================== -->
+  <div class="relative z-50 bg-gradient-to-r from-[#171110] via-[#241718] to-[#171110] border-b border-[#3D282B] py-2.5 px-4 text-center">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#E5828D]/20 text-[#FFAEC0] font-bold text-[11px] tracking-wide border border-[#E5828D]/30 uppercase">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#E5828D] animate-ping"></span>
+        Tempo Limitado
+      </span>
+      <span class="text-[#E0D8D3] font-medium">
+        Black November termina em:
+      </span>
+      <div id="topTimer" class="inline-flex items-center gap-1 font-mono font-bold text-[#F3E3A2] tracking-wider bg-black/40 px-3 py-0.5 rounded-lg border border-[#D4AF37]/30">
+        <span id="t-days">02</span>d : 
+        <span id="t-hours">14</span>h : 
+        <span id="t-mins">37</span>m : 
+        <span id="t-secs">52</span>s
+      </div>
+      <span class="hidden md:inline text-[#A0958F]">• Bônus da Live de Panetone garantido apenas nesta campanha</span>
+    </div>
+  </div>
+
+  <!-- ==================== 2. CABEÇALHO ELEGANTE ==================== -->
+  <header class="sticky top-0 z-40 bg-[#0B0908]/85 backdrop-blur-xl border-b border-white/[0.06] transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Marca / Assinatura -->
+      <a href="#" class="group flex flex-col items-start leading-none">
+        <span class="font-script text-3xl sm:text-4xl text-[#FFAEC0] transition-colors group-hover:text-white">
+          Natália Duarte
+        </span>
+        <span class="font-serif text-[10px] tracking-[0.35em] text-[#D4AF37] uppercase font-bold mt-0.5">
+          Ateliê de Confeitaria
+        </span>
+      </a>
+
+
+      <!-- Botão Header -->
+      <div class="flex items-center gap-3">
+        <a href="#oferta" class="btn-rose-luxury text-xs sm:text-sm uppercase tracking-wider px-5 sm:px-6 py-2.5 rounded-full inline-block">
+          Garantir Oferta
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== 3. HERO SECTION LUXO ==================== -->
+  <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+    
+    <!-- Ambient Light Spots -->
+    <div class="glow-amber -top-20 -left-20"></div>
+    <div class="glow-rose top-1/3 -right-20"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        
+        <!-- Texto & Oferta Principal (7 Colunas) -->
+        <div class="lg:col-span-7 text-center lg:text-left">
+          
+          <!-- Badge de Categoria -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1F1714] border border-[#D4AF37]/35 mb-5 shadow-inner">
+            <span class="text-xs">✨</span>
+            <span class="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#F3E3A2]">
+              OFERTA EXCLUSIVA DE BLACK NOVEMBER
+            </span>
+          </div>
+
+          <!-- Título Principal Editorial -->
+          <h1 class="font-serif font-black text-5xl sm:text-7xl lg:text-8xl tracking-tight leading-[0.98] mb-4">
+            <span class="text-white">BLACK</span><br>
+            <span class="text-gold-gradient">NOVEMBER</span>
+          </h1>
+
+          <!-- Subtítulo Poético -->
+          <p class="font-script text-2xl sm:text-3xl text-[#FFAEC0] mb-5">
+            A maior oportunidade do ano para viver da sua confeitaria ♡
+          </p>
+
+          <!-- Chamada Clara do Combo -->
+          <p class="text-base sm:text-lg text-[#C7BEB8] font-normal leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+            Aprenda a fazer bolos e sobremesas que vendem todos os dias com <strong class="text-white font-semibold">3 cursos completos</strong> + a <strong class="text-[#D4AF37] font-semibold">Live Especial de Panetone & Chocotone</strong> inclusa gratuitamente.
+          </p>
+
+          <!-- Card de Preço Destacado no Hero -->
+          <div class="glass-card rounded-2xl p-6 sm:p-7 max-w-md mx-auto lg:mx-0 border-l-4 border-l-[#D4AF37] mb-7">
+            <div class="flex items-center justify-between text-xs text-[#A0958F] mb-1">
+              <span>Valor original do combo:</span>
+              <span class="line-through text-sm">R$ 688,00</span>
+            </div>
+            
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="text-xs uppercase font-bold text-[#E5828D]">Por apenas</span>
+              <span class="font-serif font-extrabold text-4xl sm:text-5xl text-white">12x R$ 27,42</span>
+            </div>
+            <p class="text-sm font-semibold text-[#F3E3A2]">
+              ou R$ 277,00 à vista no PIX / Cartão (-60% OFF)
+            </p>
+
+            <a href="https://pay.hotmart.com/G96769709R" target="_blank" class="btn-gold-glow mt-5 w-full block py-4 rounded-xl text-center text-sm uppercase tracking-wider font-extrabold">
+              Garantir os 3 Cursos + Live
+            </a>
+          </div>
+
+          <!-- Selos de Confiança Rápidos -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-[#9E948E]">
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              Compra 100% Segura
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Acesso Imediato
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Garantia de 7 Dias
+            </span>
+          </div>
+
+        </div>
+
+        <!-- Fotografia Hero em Moldura Premium com Badges Flutuantes (5 Colunas) -->
+        <div class="lg:col-span-5 relative flex justify-center">
+          
+          <div class="relative w-full max-w-[420px] rounded-3xl p-2.5 bg-gradient-to-b from-[#2E201B] via-[#1A1412] to-[#120E0D] border border-[#D4AF37]/35 shadow-2xl">
+            <div class="rounded-2xl overflow-hidden aspect-[4/5] bg-black/60 relative">
+              <img src="nati-bolos.jpg" alt="Natália Duarte com bolos artísticos" class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              
+              <div class="absolute bottom-4 left-4 right-4 text-center">
+                <p class="font-serif text-lg font-bold text-white">Natália Duarte</p>
+                <p class="text-xs text-[#E5828D] font-medium">Mentora de Confeitaria Lucrativa</p>
+              </div>
+            </div>
+
+            <!-- Badge Flutuante 1: Prova Social Topo -->
+            <div class="absolute -top-4 -left-4 sm:-left-6 glass-card px-4 py-2.5 rounded-2xl flex items-center gap-3 border border-[#D4AF37]/40 shadow-xl">
+              <div class="w-10 h-10 rounded-xl bg-[#D4AF37]/20 flex items-center justify-center text-lg">👩‍🍳</div>
+              <div class="text-left leading-tight">
+                <span class="text-xs font-extrabold text-[#F3E3A2] block">+1.000 Alunas</span>
+                <span class="text-[10px] text-[#A89E98]">em todo o Brasil</span>
+              </div>
+            </div>
+
+            <!-- Badge Flutuante 2: Bônus Especial Rodapé -->
+            <div class="absolute -bottom-4 -right-3 sm:-right-5 glass-card-rose px-4 py-2.5 rounded-2xl flex items-center gap-3 border border-[#E5828D]/40 shadow-xl">
+              <div class="w-10 h-10 rounded-xl bg-[#E5828D]/20 flex items-center justify-center text-lg">🎄</div>
+              <div class="text-left leading-tight">
+                <span class="text-xs font-extrabold text-white block">Live de Natal</span>
+                <span class="text-[10px] text-[#FFAEC0] font-bold">100% Gratuita</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. PROVA SOCIAL: DEPOIMENTOS RÁPIDOS ==================== -->
+  <section class="border-y border-white/[0.06] bg-[#0E0B0A] py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
+          <p class="text-xs sm:text-sm text-[#D8D0CA] italic leading-relaxed mb-4">
+            "Comecei do zero na minha cozinha e hoje já faturo mais de R$ 3.000 por mês só com as encomendas. A Nati ensina tudo sem enrolação!"
+          </p>
+          <div class="flex items-center gap-3 pt-3 border-t border-white/[0.05]">
+            <div class="w-8 h-8 rounded-full bg-[#E5828D]/30 border border-[#E5828D]/50 flex items-center justify-center font-bold text-xs text-[#FFAEC0]">M</div>
+            <div>
+              <p class="text-xs font-bold text-white">Maria Silva</p>
+              <p class="text-[10px] text-[#A0958F]">Aluna há 8 meses • São Paulo</p>
+            </div>
+            <div class="ml-auto text-xs text-[#D4AF37]">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
+          <p class="text-xs sm:text-sm text-[#D8D0CA] italic leading-relaxed mb-4">
+            "A massa e os recheios da Nati são inacreditáveis. Minhas clientes elogiam demais a textura e o sabor, nunca mais tive reclamação de bolo seco!"
+          </p>
+          <div class="flex items-center gap-3 pt-3 border-t border-white/[0.05]">
+            <div class="w-8 h-8 rounded-full bg-[#D4AF37]/30 border border-[#D4AF37]/50 flex items-center justify-center font-bold text-xs text-[#F3E3A2]">J</div>
+            <div>
+              <p class="text-xs font-bold text-white">Juliana Costa</p>
+              <p class="text-[10px] text-[#A0958F]">Confeiteira • Minas Gerais</p>
+            </div>
+            <div class="ml-auto text-xs text-[#D4AF37]">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
+          <p class="text-xs sm:text-sm text-[#D8D0CA] italic leading-relaxed mb-4">
+            "A Live de Panetone pagou meu investimento logo na primeira semana de dezembro! Vendi mais de 180 panetones e chocotones artesanais."
+          </p>
+          <div class="flex items-center gap-3 pt-3 border-t border-white/[0.05]">
+            <div class="w-8 h-8 rounded-full bg-[#E5828D]/30 border border-[#E5828D]/50 flex items-center justify-center font-bold text-xs text-[#FFAEC0]">A</div>
+            <div>
+              <p class="text-xs font-bold text-white">Ana Oliveira</p>
+              <p class="text-[10px] text-[#A0958F]">Aluna do combo • Paraná</p>
+            </div>
+            <div class="ml-auto text-xs text-[#D4AF37]">★★★★★</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. OS 3 CURSOS COMPLETOS ==================== -->
+  <section id="cursos" class="py-20 md:py-28 relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <!-- Cabeçalho da Seção -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-extrabold uppercase tracking-[0.25em] text-[#D4AF37] block mb-2">
+          O QUE ESTÁ INCLUSO NO SEU COMBO
+        </span>
+        <h2 class="font-serif font-bold text-3xl sm:text-5xl text-white mb-4">
+          3 Cursos Completos para você <span class="text-gold-gradient">sair do zero</span>
+        </h2>
+        <p class="text-sm sm:text-base text-[#A89E98]">
+          Passo a passo didático, receitas testadas e técnicas profissionais para você produzir com segurança e cobrar com autoridade.
+        </p>
+      </div>
+
+      <!-- Grid dos 3 Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- CURSO 01 -->
+        <div class="glass-card rounded-3xl p-7 flex flex-col justify-between relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#D4AF37]/15 to-transparent rounded-bl-3xl pointer-events-none"></div>
+          
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class="text-xs font-mono font-bold text-[#D4AF37] tracking-widest uppercase px-3 py-1 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/25">
+                CURSO 01
+              </span>
+              <span class="text-xs text-[#9E948E]">40+ Aulas</span>
+            </div>
+
+            <h3 class="font-serif font-bold text-2xl text-white mb-3 group-hover:text-[#F3E3A2] transition-colors">
+              Método Do 0 à Confeiteira
+            </h3>
+            
+            <p class="text-xs sm:text-sm text-[#B8B0AA] leading-relaxed mb-6">
+              A formação base completa para dominar bolos estruturados, recheios firmes no ponto de bico, prensagem correta e decorações modernas.
+            </p>
+
+            <!-- Checklist -->
+            <ul class="space-y-2.5 text-xs sm:text-sm text-[#D8D0CA] mb-6">
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#D4AF37] font-bold mt-0.5">✓</span>
+                <span>Massas amanteigadas e pão de ló fofinho</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#D4AF37] font-bold mt-0.5">✓</span>
+                <span>Recheios gourmet que não vazam na entrega</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#D4AF37] font-bold mt-0.5">✓</span>
+                <span>Blindagem com ganache e chantininho perfeito</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#D4AF37] font-bold mt-0.5">✓</span>
+                <span>Espatulados, drip cake e técnicas de bicos</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-5 border-t border-white/[0.08] flex items-center justify-between text-xs">
+            <span class="text-[#A0958F]">Valor individual: <span class="line-through">R$ 497</span></span>
+            <span class="text-[#E5828D] font-bold">Incluso no combo</span>
+          </div>
+        </div>
+
+        <!-- CURSO 02 -->
+        <div class="glass-card rounded-3xl p-7 flex flex-col justify-between relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#E5828D]/15 to-transparent rounded-bl-3xl pointer-events-none"></div>
+
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class="text-xs font-mono font-bold text-[#FFAEC0] tracking-widest uppercase px-3 py-1 rounded-full bg-[#E5828D]/15 border border-[#E5828D]/30">
+                CURSO 02
+              </span>
+              <span class="text-xs text-[#9E948E]">Vitrine Nobre</span>
+            </div>
+
+            <h3 class="font-serif font-bold text-2xl text-white mb-3 group-hover:text-[#FFAEC0] transition-colors">
+              Tortas Premium de Vitrine
+            </h3>
+            
+            <p class="text-xs sm:text-sm text-[#B8B0AA] leading-relaxed mb-6">
+              Aprenda a fazer tortas finas e sofisticadas que atraem clientes dispostos a pagar mais pela elegância e sabor inesquecível.
+            </p>
+
+            <!-- Checklist -->
+            <ul class="space-y-2.5 text-xs sm:text-sm text-[#D8D0CA] mb-6">
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#E5828D] font-bold mt-0.5">✓</span>
+                <span>Massas crocantes e bases que não esfarelam</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#E5828D] font-bold mt-0.5">✓</span>
+                <span>Cremes aveludados, mousses e ganaches nobres</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#E5828D] font-bold mt-0.5">✓</span>
+                <span>Geleias artesanais de frutas vermelhas e maracujá</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#E5828D] font-bold mt-0.5">✓</span>
+                <span>Apresentação e embalagens que valorizam o produto</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-5 border-t border-white/[0.08] flex items-center justify-between text-xs">
+            <span class="text-[#A0958F]">Valor individual: <span class="line-through">R$ 297</span></span>
+            <span class="text-[#E5828D] font-bold">Incluso no combo</span>
+          </div>
+        </div>
+
+        <!-- CURSO 03 -->
+        <div class="glass-card rounded-3xl p-7 flex flex-col justify-between relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#D4AF37]/15 to-transparent rounded-bl-3xl pointer-events-none"></div>
+
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class="text-xs font-mono font-bold text-[#D4AF37] tracking-widest uppercase px-3 py-1 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/25">
+                CURSO 03
+              </span>
+              <span class="text-xs text-[#9E948E]">Alta Saída Diária</span>
+            </div>
+
+            <h3 class="font-serif font-bold text-2xl text-white mb-3 group-hover:text-[#F3E3A2] transition-colors">
+              Pão Delícia da Bahia
+            </h3>
+            
+            <p class="text-xs sm:text-sm text-[#B8B0AA] leading-relaxed mb-6">
+              A clássica receita tradicional que derrete na boca. Um produto de custo baixíssimo e venda garantida para café da manhã, lanches e festas.
+            </p>
+
+            <!-- Checklist -->
+            <ul class="space-y-2.5 text-xs sm:text-sm text-[#D8D0CA] mb-6">
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#D4AF37] font-bold mt-0.5">✓</span>
+                <span>Massa super fofa que não resseca</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#D4AF37] font-bold mt-0.5">✓</span>
+                <span>Ponto correto de fermentação sem segredos</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#D4AF37] font-bold mt-0.5">✓</span>
+                <span>Recheios salgados cremosos e doces irresistíveis</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#D4AF37] font-bold mt-0.5">✓</span>
+                <span>Como congelar para vender pronto todos os dias</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-5 border-t border-white/[0.08] flex items-center justify-between text-xs">
+            <span class="text-[#A0958F]">Valor individual: <span class="line-through">R$ 197</span></span>
+            <span class="text-[#E5828D] font-bold">Incluso no combo</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 6. BÔNUS EXCLUSIVO: LIVE PANETONE & CHOCOTONE ==================== -->
+  <section id="live-bonus" class="py-12 px-4 sm:px-6">
+    <div class="max-w-5xl mx-auto rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-[#D4AF37]/50 bg-gradient-to-r from-[#1E1611] via-[#14100E] to-[#1E1611] shadow-2xl">
+      
+      <!-- Detalhes de Iluminação -->
+      <div class="absolute -top-24 -right-24 w-72 h-72 bg-[#D4AF37]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
+        
+        <!-- Imagem Real da Nati com o Chocotone (4 Colunas) -->
+        <div class="md:col-span-4 flex justify-center">
+          <div class="w-56 sm:w-64 aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#D4AF37]/60 shadow-2xl relative bg-black/50">
+            <img src="nati-chocotone.jpg" alt="Natália Duarte com Chocotone Gourmet Artesanal" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 bg-[#E5828D] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full tracking-wider shadow">
+              BÔNUS ESPECIAL
+            </div>
+          </div>
+        </div>
+
+        <!-- Conteúdo do Bônus (8 Colunas) -->
+        <div class="md:col-span-8 text-center md:text-left">
+          <div class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-[#F3E3A2] mb-3">
+            <span>🎄</span>
+            <span>A MAIOR DATA DE VENDAS DO ANO</span>
+          </div>
+
+          <h3 class="font-serif font-bold text-3xl sm:text-4xl text-white mb-4 leading-snug">
+            Live Especial de Natal:<br>
+            <span class="text-gold-gradient">Panetone &amp; Chocotone Artesanal</span>
+          </h3>
+
+          <p class="text-sm sm:text-base text-[#D4CCC6] leading-relaxed mb-6">
+            Aprenda a fazer a massa mais macia, úmida e aromática da confeitaria artesanal. Você vai aprender variações trufadas de alto valor agregado para faturar alto no Natal e começar o ano com dinheiro no bolso.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-[#F0EBE6] mb-7">
+            <div class="flex items-center gap-2">
+              <span class="text-[#D4AF37] font-bold">★</span>
+              <span>Massa de longa fermentação sem segredos</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-[#D4AF37] font-bold">★</span>
+              <span>Recheios trufados que encantam</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-[#D4AF37] font-bold">★</span>
+              <span>Embalagens elegantes e apresentação de luxo</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-[#D4AF37] font-bold">★</span>
+              <span>Planilha de precificação natalina</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+            <span class="text-sm text-[#A0958F]">Valor se vendida à parte: <span class="line-through">R$ 97,00</span></span>
+            <span class="px-3.5 py-1 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-xs font-bold text-[#F3E3A2] uppercase tracking-wider">
+              100% Gratuito no combo
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 7. PARA QUEM É / NÃO É ==================== -->
+  <section class="py-20 bg-[#0E0C0B] border-y border-white/[0.06]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-14">
+        <span class="text-xs font-bold tracking-[0.2em] text-[#D4AF37] uppercase">TRANSPARÊNCIA TOTAL</span>
+        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white mt-1">
+          Este combo é para você?
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Card: Para Quem É -->
+        <div class="glass-card rounded-3xl p-8 border-l-4 border-l-[#D4AF37]">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 rounded-full bg-[#D4AF37]/20 text-[#D4AF37] flex items-center justify-center font-bold text-lg">✓</div>
+            <h3 class="font-serif text-xl font-bold text-white">Este combo É para você que:</h3>
+          </div>
+          <ul class="space-y-4 text-sm text-[#D4CCC6] leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="text-[#D4AF37] font-bold mt-1">•</span>
+              <span><strong>Está começando do zero absoluto:</strong> Quer receitas testadas para não perder dinheiro nem ingredientes tentando sozinha.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[#D4AF37] font-bold mt-1">•</span>
+              <span><strong>Já faz doces mas não tem lucro:</strong> Quer profissionalizar suas massas, aprender a precificar e atrair clientes de verdade.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[#D4AF37] font-bold mt-1">•</span>
+              <span><strong>Quer aproveitar o Natal:</strong> Quer lucrar alto com panetones e bolos decorados na época que mais vende no ano.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card: Para Quem Não É -->
+        <div class="glass-card rounded-3xl p-8 border-l-4 border-l-[#E5828D]">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 rounded-full bg-[#E5828D]/20 text-[#E5828D] flex items-center justify-center font-bold text-lg">✕</div>
+            <h3 class="font-serif text-xl font-bold text-white">Este combo NÃO é para quem:</h3>
+          </div>
+          <ul class="space-y-4 text-sm text-[#D4CCC6] leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="text-[#E5828D] font-bold mt-1">•</span>
+              <span><strong>Espera milagres sem praticar:</strong> O método funciona quando você assiste às aulas e coloca as técnicas no forno.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[#E5828D] font-bold mt-1">•</span>
+              <span><strong>Não quer se dedicar ao aprendizado:</strong> Nossas alunas de sucesso são dedicadas e aplicam o passo a passo com carinho.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[#E5828D] font-bold mt-1">•</span>
+              <span><strong>Busca confeitaria industrial:</strong> Nosso foco é a confeitaria artesanal premium, feita na cozinha de casa com alta rentabilidade.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 8. SOBRE A NATÁLIA DUARTE ==================== -->
+  <section id="sobre" class="py-20 md:py-28 relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Foto Retrato Nati -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-sm">
+            <div class="aspect-[3/4] rounded-3xl overflow-hidden border-2 border-[#D4AF37]/40 shadow-2xl bg-black/60">
+              <img src="nati-foto.jpg" alt="Natália Duarte Confeiteira" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="absolute -bottom-4 -left-4 glass-card px-5 py-3 rounded-2xl border border-[#D4AF37]/40">
+              <p class="font-script text-2xl text-[#E5828D] leading-none">Natália Duarte</p>
+              <p class="text-[10px] text-[#D4AF37] uppercase font-bold tracking-widest mt-1">Fundadora do Ateliê</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Biografia Inspiradora -->
+        <div class="lg:col-span-7">
+          <span class="text-xs font-extrabold uppercase tracking-[0.25em] text-[#D4AF37] block mb-2">
+            CONHEÇA SUA MENTORA
+          </span>
+          <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white mb-6 text-left">
+            "Eu também comecei do absoluto zero, <span class="text-gold-gradient">na cozinha da minha casa</span>"
+          </h2>
+
+          <div class="space-y-4 text-sm sm:text-base text-[#D4CCC6] leading-relaxed">
+            <p>
+              Eu sei exatamente como é ter medo de errar a massa, ter receio de o recheio desandar na hora da entrega e não saber quanto cobrar sem achar que o cliente vai embora.
+            </p>
+            <p>
+              Com muita prática, erros e acertos, desenvolvi técnicas práticas e receitas infalíveis que transformaram a minha vida e a de <strong>mais de 1.000 alunas</strong> por todo o país.
+            </p>
+            <p>
+              O método que eu ensino é descomplicado, acessível e feito para quem tem utensílios básicos. Não precisa de equipamentos industriais caros para começar a fazer doces que encantam os olhos e conquistam clientes fiéis.
+            </p>
+          </div>
+
+          <div class="mt-8 flex flex-wrap items-center gap-6 pt-6 border-t border-white/[0.08]">
+            <a href="https://www.instagram.com/nataliaduarteatelie/" target="_blank" class="inline-flex items-center gap-2 text-sm text-[#E5828D] hover:underline font-semibold">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              <span>Acompanhe @nataliaduarteatelie</span>
+            </a>
+            <span class="text-xs text-[#A0958F]">• Comunidade ativa com alunas</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 9. OFERTA CHECKOUT DEFINITIVA ==================== -->
+  <section id="oferta" class="py-24 px-4 sm:px-6 relative bg-gradient-to-b from-[#0B0908] via-[#17110F] to-[#0B0908]">
+    <div class="max-w-3xl mx-auto">
+      
+      <div class="text-center mb-12">
+        <span class="inline-block text-xs font-extrabold uppercase tracking-[0.25em] text-[#D4AF37] px-4 py-1.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/30 mb-3">
+          CONDIÇÃO ESPECIAL DE BLACK NOVEMBER
+        </span>
+        <h2 class="font-serif font-black text-3xl sm:text-5xl text-white">
+          Tudo que você vai receber <span class="text-gold-gradient">por R$ 277</span>
+        </h2>
+        <p class="text-sm text-[#A89E98] mt-2">Uma oportunidade que só acontece uma vez ao ano</p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 sm:p-12 border-2 border-[#D4AF37]/45 shadow-2xl relative">
+        
+        <!-- Lista de Entregáveis com Preços de Tabela -->
+        <div class="space-y-4 mb-8">
+          <div class="flex items-center justify-between pb-3.5 border-b border-white/[0.08] text-sm sm:text-base">
+            <span class="flex items-center gap-2">
+              <span class="text-[#D4AF37]">🎂</span>
+              <span class="text-white font-medium">Curso Método Do 0 à Confeiteira</span>
+            </span>
+            <span class="text-[#A0958F] line-through text-xs sm:text-sm">R$ 497,00</span>
+          </div>
+
+          <div class="flex items-center justify-between pb-3.5 border-b border-white/[0.08] text-sm sm:text-base">
+            <span class="flex items-center gap-2">
+              <span class="text-[#D4AF37]">🥧</span>
+              <span class="text-white font-medium">Curso Tortas Premium de Vitrine</span>
+            </span>
+            <span class="text-[#A0958F] line-through text-xs sm:text-sm">R$ 297,00</span>
+          </div>
+
+          <div class="flex items-center justify-between pb-3.5 border-b border-white/[0.08] text-sm sm:text-base">
+            <span class="flex items-center gap-2">
+              <span class="text-[#D4AF37]">🍞</span>
+              <span class="text-white font-medium">Curso Pão Delícia da Bahia</span>
+            </span>
+            <span class="text-[#A0958F] line-through text-xs sm:text-sm">R$ 197,00</span>
+          </div>
+
+          <div class="flex items-center justify-between pb-3.5 border-b border-white/[0.08] text-sm sm:text-base">
+            <span class="flex items-center gap-2 text-[#FFAEC0] font-semibold">
+              <span>🎄</span>
+              <span>Bônus: Live Especial Panetone &amp; Chocotone</span>
+            </span>
+            <span class="text-[#F3E3A2] font-bold text-xs uppercase px-2 py-0.5 rounded bg-[#D4AF37]/20">100% Grátis</span>
+          </div>
+        </div>
+
+        <!-- Bloco de Preço -->
+        <div class="text-center pt-6 border-t border-dashed border-[#D4AF37]/30">
+          <div class="text-sm text-[#A89E98] mb-1">
+            Valor total de tabela: <span class="line-through text-base">R$ 1.088,00</span>
+          </div>
+
+          <div class="font-serif font-black text-5xl sm:text-7xl text-white mb-2 leading-none">
+            12x <span class="text-gold-gradient">R$ 27,42</span>
+          </div>
+          
+          <p class="text-sm sm:text-base text-[#D4CCC6] mb-8">
+            ou apenas <strong class="text-white font-bold">R$ 277,00 à vista</strong> (economia imediata de R$ 811,00)
+          </p>
+
+          <a href="https://pay.hotmart.com/G96769709R" target="_blank" class="btn-gold-glow w-full block py-5 rounded-2xl text-base sm:text-lg uppercase tracking-wider font-black shadow-2xl">
+            Quero Garantir Minha Vaga com Desconto
+          </a>
+
+          <p class="text-xs text-[#9E948E] mt-4 flex items-center justify-center gap-2">
+            <span>🔒 Pagamento Seguro Hotmart</span>
+            <span>•</span>
+            <span>⚡ Liberação Imediata</span>
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 10. GARANTIA 7 DIAS ==================== -->
+  <section class="pb-20 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto glass-card rounded-3xl p-8 sm:p-10 border border-[#D4AF37]/35 flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+      <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-[#D4AF37] flex items-center justify-center shrink-0 bg-[#D4AF37]/10">
+        <span class="font-serif font-black text-4xl sm:text-5xl text-[#F3E3A2]">7</span>
+      </div>
+      <div class="text-center sm:text-left">
+        <h3 class="font-serif font-bold text-2xl text-white mb-2">
+          Garantia Incondicional de 7 Dias
+        </h3>
+        <p class="text-xs sm:text-sm text-[#C7BEB8] leading-relaxed">
+          Assista às primeiras aulas, experimente as receitas na prática e sinta a diferença da nossa didática. Se por qualquer motivo achar que o combo não é para você, devolvemos 100% do seu dinheiro sem burocracia e sem ressentimento. O risco é todo meu!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 11. FAQ ACCORDION MODERNO ==================== -->
+  <section id="faq" class="py-20 bg-[#0E0C0B] border-t border-white/[0.06]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-14">
+        <span class="text-xs font-bold tracking-[0.2em] text-[#D4AF37] uppercase">TIRE SUAS DÚVIDAS</span>
+        <h2 class="font-serif font-bold text-3xl sm:text-4xl text-white mt-1">
+          Perguntas Frequentes
+        </h2>
+      </div>
+
+      <div class="space-y-3.5">
+        
+        <details class="glass-card rounded-2xl p-5 transition-all">
+          <summary class="flex items-center justify-between font-semibold text-sm sm:text-base text-white cursor-pointer select-none">
+            <span>Nunca fiz bolo na vida, vou conseguir acompanhar?</span>
+            <span class="faq-chevron text-lg text-[#D4AF37] transition-transform duration-300">▼</span>
+          </summary>
+          <div class="pt-3 text-xs sm:text-sm text-[#B8B0AA] leading-relaxed border-t border-white/[0.06] mt-3">
+            Com certeza! Todo o conteúdo foi preparado pensando em quem está começando do absoluto zero. A Nati mostra a temperatura dos ingredientes, o ponto exato de cada massa e como bater o recheio passo a passo.
+          </div>
+        </details>
+
+        <details class="glass-card rounded-2xl p-5 transition-all">
+          <summary class="flex items-center justify-between font-semibold text-sm sm:text-base text-white cursor-pointer select-none">
+            <span>Por quanto tempo terei acesso aos 3 cursos?</span>
+            <span class="faq-chevron text-lg text-[#D4AF37] transition-transform duration-300">▼</span>
+          </summary>
+          <div class="pt-3 text-xs sm:text-sm text-[#B8B0AA] leading-relaxed border-t border-white/[0.06] mt-3">
+            O acesso a todos os 3 cursos é vitalício! Você poderá assistir às aulas quantas vezes quiser, no seu ritmo, pelo celular, tablet ou computador, sem data de expiração.
+          </div>
+        </details>
+
+        <details class="glass-card rounded-2xl p-5 transition-all">
+          <summary class="flex items-center justify-between font-semibold text-sm sm:text-base text-white cursor-pointer select-none">
+            <span>Como vou receber o acesso após a compra?</span>
+            <span class="faq-chevron text-lg text-[#D4AF37] transition-transform duration-300">▼</span>
+          </summary>
+          <div class="pt-3 text-xs sm:text-sm text-[#B8B0AA] leading-relaxed border-t border-white/[0.06] mt-3">
+            Assim que seu pagamento for confirmado pela Hotmart, os dados de login e instruções chegam imediatamente no seu e-mail cadastrado. Se pagar via PIX ou Cartão, a liberação é imediata.
+          </div>
+        </details>
+
+        <details class="glass-card rounded-2xl p-5 transition-all">
+          <summary class="flex items-center justify-between font-semibold text-sm sm:text-base text-white cursor-pointer select-none">
+            <span>Como vai funcionar a Live Especial de Panetone?</span>
+            <span class="faq-chevron text-lg text-[#D4AF37] transition-transform duration-300">▼</span>
+          </summary>
+          <div class="pt-3 text-xs sm:text-sm text-[#B8B0AA] leading-relaxed border-t border-white/[0.06] mt-3">
+            A Live será transmitida antes do Natal exclusivamente para as alunas desta turma da Black November. Você receberá o link com antecedência e a gravação ficará salva na sua área de membros para rever sempre que quiser.
+          </div>
+        </details>
+
+        <details class="glass-card rounded-2xl p-5 transition-all">
+          <summary class="flex items-center justify-between font-semibold text-sm sm:text-base text-white cursor-pointer select-none">
+            <span>Quais as formas de pagamento disponíveis?</span>
+            <span class="faq-chevron text-lg text-[#D4AF37] transition-transform duration-300">▼</span>
+          </summary>
+          <div class="pt-3 text-xs sm:text-sm text-[#B8B0AA] leading-relaxed border-t border-white/[0.06] mt-3">
+            Você pode parcelar em até 12x no cartão de crédito, ou pagar à vista no PIX com aprovação instantânea, ou boleto bancário.
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 12. RODAPÉ REFINADO ==================== -->
+  <footer class="py-12 bg-[#080605] border-t border-white/[0.06] text-center text-xs text-[#8A807A]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <p class="font-script text-3xl text-[#FFAEC0] mb-1">Natália Duarte Ateliê</p>
+      <p class="font-serif text-[10px] tracking-[0.3em] text-[#D4AF37] uppercase font-bold mb-4">Confeitaria Descomplicada &amp; Lucrativa</p>
+      
+      <p class="max-w-md mx-auto text-[#A0958F] mb-6">
+        Transforme sua cozinha em uma fonte real de renda e encante seus clientes com receitas profissionais e acabamento de luxo.
+      </p>
+
+      <div class="flex items-center justify-center gap-6 mb-6 text-sm">
+        <a href="https://www.instagram.com/nataliaduarteatelie/" target="_blank" class="hover:text-[#FFAEC0] transition-colors">
+          Instagram: @nataliaduarteatelie
+        </a>
+      </div>
+
+      <p class="text-[11px] text-[#6E645F]">
+        © 2026 Natália Duarte Ateliê. Todos os direitos reservados.<br>
+        Termos de Uso • Política de Privacidade
+      </p>
+
+    </div>
+  </footer>
+
+  <!-- ==================== 13. BARRA FLUTUANTE MOBILE (STICKY BOTTOM CTA) ==================== -->
+  <div id="mobileBottomBar" class="fixed bottom-0 left-0 right-0 z-50 p-3 bg-[#120D0B]/95 backdrop-blur-md border-t border-[#D4AF37]/30 sm:hidden flex items-center justify-between gap-3 shadow-2xl">
+    <div>
+      <span class="text-[10px] uppercase font-bold text-[#D4AF37] block">Black November</span>
+      <span class="font-serif font-black text-lg text-white">12x R$ 27,42</span>
+    </div>
+    <a href="https://pay.hotmart.com/G96769709R" target="_blank" class="btn-gold-glow text-xs uppercase tracking-wider font-extrabold px-5 py-3 rounded-xl">
+      Garantir por R$ 277
+    </a>
+  </div>
+
+  <!-- ==================== CRONÔMETRO SINCRONIZADO ==================== -->
+  <script>
+    const targetTime = Date.now() + (2 * 24 * 3600 + 14 * 3600 + 37 * 60 + 52) * 1000;
+
+    function renderTimer() {
+      const remaining = targetTime - Date.now();
+      if (remaining <= 0) return;
+
+      const d = Math.floor(remaining / (1000 * 60 * 60 * 24));
+      const h = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((remaining % (1000 * 60)) / 1000);
+
+      document.getElementById('t-days').innerText = String(d).padStart(2, '0');
+      document.getElementById('t-hours').innerText = String(h).padStart(2, '0');
+      document.getElementById('t-mins').innerText = String(m).padStart(2, '0');
+      document.getElementById('t-secs').innerText = String(s).padStart(2, '0');
+    }
+
+    renderTimer();
+    setInterval(renderTimer, 1000);
+  </script>
+
+</body>
+</html>
