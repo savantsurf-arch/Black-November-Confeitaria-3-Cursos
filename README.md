@@ -6,7 +6,7 @@ Landing page de alta conversão para a campanha de Black November do **Natália 
 - **3 Cursos Completos:**
   - Método Do 0 à Confeiteira
   - Tortas Premium de Vitrine
-  - Pão Delícia da Bahia
+  - Pão Delícia Perfeito
 - **Super Bônus Exclusivo:** Live Panetone e Chocotone Artesanal
 - **Investimento:** R$ 277,00 à vista (ou 12x de R$ 27,42)
 - **Garantia:** 7 dias incondicionais
